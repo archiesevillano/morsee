@@ -1,0 +1,23 @@
+@use './../../index';
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60%;
+    gap: 8px;
+
+    .brand__image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .brand__text {
+        font-family: index.$super;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        color: index.$secondary-active;
+        font-weight: 500;
+    }
+}

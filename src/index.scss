@@ -21,3 +21,11 @@ $tertiary-active: #6b6b6b;
 $primary-disable: #c9c9c9ce;
 $secondary-disable: #797979d0;
 $tertiary-disable: #8a8a8ab9;
+
+
+// reset margin and padding including box sizing
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
