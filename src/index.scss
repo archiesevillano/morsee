@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&family=Noto+Sans+Cypro+Minoan&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+// theme fonts
+$super: 'Jost', sans-serif;
+$head: 'Noto Sans Cypro Minoan', sans-serif;
+$normal: 'Roboto', sans-serif;
+
+//color themes
+
+// main colors
+$primary: #070707;
+$secondary: #0f0f0f;
+$tertiary: #292929;
+
+// active colors
+$primary-active: #2e2e2e;
+$secondary-active: #444444;
+$tertiary-active: #6b6b6b;
+
+//disabled colors
+$primary-disable: #c9c9c9ce;
+$secondary-disable: #797979d0;
+$tertiary-disable: #8a8a8ab9;
