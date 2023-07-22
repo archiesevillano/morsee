@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.scss'
 import AppHeader from './components/AppHeader/AppHeader'
+import AppFooter from './components/AppFooter/AppFooter'
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="app">
       <AppHeader />
+      <AppFooter />
     </div>
   )
 }

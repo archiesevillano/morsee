@@ -1,0 +1,16 @@
+@use './../../index';
+
+.appFooter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: index.$primary-disable;
+    padding: 20px;
+
+    p {
+        margin: 0;
+        font-family: index.$head;
+        font-size: 0.8rem;
+    }
+}
