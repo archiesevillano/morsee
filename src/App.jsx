@@ -6,7 +6,6 @@ import AppRoutes from './Contexts/RouteContext'
 
 function App() {
 
-
   return (
     <div className="app">
       <AppRoutes>

@@ -1,7 +1,12 @@
 .appHeader {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 80px;
+    padding: 0 30px;
+
+    @media (min-width: 810px) {
+        padding: 0 100px;
+    }
 }

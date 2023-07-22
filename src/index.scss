@@ -23,9 +23,21 @@ $secondary-disable: #797979d0;
 $tertiary-disable: #8a8a8ab9;
 
 
+
 // reset margin and padding including box sizing
+* {
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+}
+
+%center-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

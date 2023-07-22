@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export const RouteContext = React.createContext();
 
@@ -24,8 +25,13 @@ const AppRoutes = ({ children }) => {
     ]
 
     return (
-        <RouteContext.Provider>
-            {children}
+        <RouteContext.Provider value={{ pages }}>
+            <Router>
+                {children}
+                <Routes>
+                    {pages.map(page => <Route path={page.path} element={page.element} />)}
+                </Routes>
+            </Router>
         </RouteContext.Provider>
     )
 }
