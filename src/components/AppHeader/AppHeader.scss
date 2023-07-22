@@ -5,6 +5,8 @@
     align-items: center;
     height: 80px;
     padding: 0 30px;
+    grid-row-start: 1;
+    grid-row-end: 2;
 
     @media (min-width: 810px) {
         padding: 0 100px;

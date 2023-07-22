@@ -1,0 +1,7 @@
+@use "./../../index";
+
+.pager {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background: index.$tertiary-disable;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Pager from '../components/Pager/Pager';
 
 export const RouteContext = React.createContext();
 
@@ -9,7 +10,7 @@ const AppRoutes = ({ children }) => {
     const pages = [
         {
             name: "Get Started",
-            path: "/get-started",
+            path: "/",
             element: null,
         },
         {
@@ -28,9 +29,11 @@ const AppRoutes = ({ children }) => {
         <RouteContext.Provider value={{ pages }}>
             <Router>
                 {children}
-                <Routes>
-                    {pages.map(page => <Route path={page.path} element={page.element} />)}
-                </Routes>
+                <Pager>
+                    <Routes>
+                        {pages.map(page => <Route path={page.path} element={page.element} />)}
+                    </Routes>
+                </Pager>
             </Router>
         </RouteContext.Provider>
     )

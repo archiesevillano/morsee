@@ -10,8 +10,8 @@ function App() {
     <div className="app">
       <AppRoutes>
         <AppHeader />
-        <AppFooter />
       </AppRoutes>
+      <AppFooter />
     </div>
   )
 }
