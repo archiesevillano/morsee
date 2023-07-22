@@ -9,9 +9,12 @@ const NavBar = () => {
     const [isVisible, setVisibility] = useState(false);
     const [screenSize, setScreenSize] = useState(0);
 
+    // returns true if the navbar is in hamburger mode
     const [isHamburger, setHamburger] = useState(false);
 
+    // runs when the screen size change
     useEffect(() => {
+        // checks the width of the screen if it matches with the media max-width
         setHamburger(window.matchMedia("(max-width: 690px)").matches);
         window.addEventListener("resize", handleChangeScreen, { passive: true });
 
@@ -20,10 +23,10 @@ const NavBar = () => {
         };
     }, [screenSize]);
 
+    // gets the width of the screen
     const handleChangeScreen = () => {
         const size = window.innerWidth;
         setScreenSize(size);
-        console.log(size);
     };
 
     // hides and show menu in hamburger menu mode
