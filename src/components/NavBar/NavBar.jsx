@@ -42,7 +42,7 @@ const NavBar = () => {
             <ul className="navbar__list" style={{ display: isHamburger ? isVisible ? "block" : "none" : "block" }} >
                 {pages.map(page => <li><NavLink onClick={handleShowHideMenu} className={({ isActive }) => isActive ? "active" : ""} to={page.path}>{page.name}</NavLink></li>)}
             </ul>
-            <div className="navbar__overlay" style={{ display: isVisible ? "block" : "none" }} onClick={handleShowHideMenu}></div>
+            <div className="navbar__overlay" style={{ display: isHamburger ? isVisible ? "block" : "none" : "none" }} onClick={handleShowHideMenu}></div>
         </nav>
     );
 }
