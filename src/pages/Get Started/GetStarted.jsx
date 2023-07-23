@@ -1,18 +1,32 @@
+import { useNavigate } from "react-router-dom";
 import "./GetStarted.scss";
 const GetStarted = () => {
+
+    const navTo = useNavigate();
+
+    // Redirects the user to Morsee Morse Code Translator
+    const handleRedirectToTranslate = () => {
+        navTo("/translator");
+    }
+
+    // redirects the user to API Documentation Page
+    const handleRedirectToAPI = () => {
+        navTo("/api-documentation");
+    }
+
     return (
         <div className="getStarted">
             <p className="getStarted__para1 p">Free Online Morse Code Translator</p>
             <h1 className="getStarted__h1">Morse Code Translate</h1>
             <p className="getStarted__para2 p">Transform your ideas into trendy Morse code and send a mysterious message to your pals.</p>
             <div className="getStarted__btnGroup">
-                <div className="getStarted__btnContainer--translator" role="button">
+                <div className="getStarted__btnContainer--translator" onClick={handleRedirectToTranslate} role="button">
                     <div className="getStarted__btnContainer__texts">
                         <p>Try for Free</p>
                         <p>Morse Translate</p>
                     </div>
                 </div>
-                <div className="getStarted__btnContainer--api" role="button">
+                <div className="getStarted__btnContainer--api" onClick={handleRedirectToAPI} role="button">
                     <div className="getStarted__btnContainer__texts">
                         <p>Free and No API Key</p>
                         <p>{import.meta.env.VITE_APP_NAME} API for Free</p>
