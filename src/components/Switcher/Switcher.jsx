@@ -5,7 +5,7 @@ const Switcher = () => {
 
     //returns true if the translator translates from normal text to morse code
     const [isSwitched, switchTo] = useState(true);
-    const translate = ["Text", "Morse Code"];
+    const translate = ["Regular Text", "Morse Code"];
 
     const { handleSwitch } = useContext(IOContext);
 
