@@ -41,6 +41,13 @@
         margin: 30px 0;
         gap: 50px;
         width: 450px;
+
+        @media (max-width: 510px) {
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            width: 220px;
+        }
     }
 
     .getStarted__btnGroup p {
@@ -56,11 +63,28 @@
         font-weight: normal;
     }
 
-    .getStarted__btnContainer {
+    .getStarted__btnContainer--translator {
         background-color: index.$tertiary;
         padding: 8px 15px;
         cursor: pointer;
         border-radius: 7px;
+
+        @media (max-width: 510px) {
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+    }
+
+    .getStarted__btnContainer--api {
+        background-color: index.$tertiary;
+        padding: 8px 15px;
+        cursor: pointer;
+        border-radius: 7px;
+
+        @media (max-width: 510px) {
+            grid-row-start: 2;
+            grid-row-end: 3;
+        }
     }
 
     .getStarted__btnContainer:hover {
