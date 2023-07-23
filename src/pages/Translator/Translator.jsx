@@ -6,8 +6,8 @@ const Translator = () => {
     return (
         <div className="translator">
             <Switcher />
-            <IOField heading="Input" type="input" />
-            <IOField heading="Output" type="output" />
+            <IOField heading="Input" type="input" className="translator__inputField" />
+            <IOField heading="Output" type="output" className="translator__outputField" />
         </div>
     );
 }

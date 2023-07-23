@@ -2,7 +2,7 @@ import { IOContext } from "../../Contexts/IOContext";
 import "./IOField.scss";
 import { useRef, useContext, useEffect } from 'react';
 
-const IOField = ({ heading, type }) => {
+const IOField = ({ heading, type, className }) => {
 
     const { input, setInput, converted } = useContext(IOContext);
     const inputRef = useRef(null);
@@ -31,7 +31,7 @@ const IOField = ({ heading, type }) => {
     }
 
     return (
-        <div className={`IOField ${type === "output" ? "readOnly" : ""}`}>
+        <div className={`IOField ${className} ${type === "output" ? "readOnly" : ""}`}>
             <h2>{heading}<span className="readOnly">Read only</span></h2>
             <textarea ref={inputRef} onChange={e => setInput(e.target.value)} className="IOField__field" style={{ pointerEvents: type === "output" ? "none" : "", fontFamily: type === "input" ? "'Roboto', sans-serif" : "courier" }} />
             <div className="IOField__btnGroup">
