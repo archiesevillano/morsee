@@ -1,0 +1,48 @@
+@use './../../index';
+
+.switcher {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+
+    .switcher__translates {
+        min-width: 300px;
+        max-width: 400px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        gap: 20px;
+    }
+
+    .switcher__translates p {
+        width: 150px;
+        background-color: rgba(0, 0, 0, 0.2);
+        text-align: center;
+        padding: 10px 13px;
+        font-family: index.$head;
+        font-weight: bold;
+        opacity: 0.7;
+        border-radius: 8px;
+        cursor: default;
+    }
+
+    .switcher__button {
+        padding: 7px 10px;
+        font-size: 20px;
+        border-radius: 50%;
+        border: none;
+        background: rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        opacity: 0.8;
+    }
+
+    .switcher__button:active {
+        background: rgba(0, 0, 0, 0.3);
+    }
+}

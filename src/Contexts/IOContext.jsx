@@ -5,6 +5,7 @@ export const IOContext = React.createContext();
 
 const IO = ({ children }) => {
 
+    const [conversionType, setConversionType] = useState("morse");
     const [input, setInput] = useState("");
     const [converted, setConverted] = useState("");
 
@@ -18,8 +19,12 @@ const IO = ({ children }) => {
         setConverted(response.data);
     }
 
-    const handleConvert = (type) => {
-        switch (type) {
+    const handleSwitch = (type) => {
+        setConversionType(type);
+    }
+
+    const handleConvert = () => {
+        switch (conversionType) {
             case "morse":
                 // convert input to morse code
                 handleConvertToMorse();
@@ -34,7 +39,7 @@ const IO = ({ children }) => {
     }
 
     return (
-        <IOContext.Provider value={{ input, setInput, handleConvert, converted }}>
+        <IOContext.Provider value={{ input, setInput, handleConvert, converted, handleSwitch }}>
             {children}
         </IOContext.Provider>
     );
