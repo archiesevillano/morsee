@@ -1,6 +1,6 @@
 import { IOContext } from "../../Contexts/IOContext";
 import "./IOField.scss";
-import { useState, useRef, useContext, useEffect } from 'react';
+import { useRef, useContext, useEffect } from 'react';
 
 const IOField = ({ heading, type }) => {
 
@@ -9,12 +9,14 @@ const IOField = ({ heading, type }) => {
 
     useEffect(() => {
         // assigns new value to the textbox whenever there's a new conversion
-        inputRef.current.value = input;
+        if (type === "output") {
+            inputRef.current.value = converted;
+        }
     }, [converted]);
 
     // copies the input inside the textbox
     const handleCopy = () => {
-        navigator.clipboard.writeText(input);
+        navigator.clipboard.writeText(type === "input" ? input : converted);
     }
 
     // paste the text content from clipboard to textbox

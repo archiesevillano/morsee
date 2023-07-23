@@ -9,13 +9,17 @@ const IO = ({ children }) => {
     const [input, setInput] = useState("");
     const [converted, setConverted] = useState("");
 
+    useEffect(() => {
+        handleConvert();
+    }, [input]);
+
     const handleConvertToMorse = async () => {
-        const response = await Axios.get();
+        const response = await Axios.post(`${import.meta.env.VITE_SERVER}/translate`, { input, type: "morse" });
         setConverted(response.data);
     }
 
     const handleConvertToNormal = async () => {
-        const response = await Axios.get();
+        const response = await Axios.post(`${import.meta.env.VITE_SERVER}/translate`, { input, type: "normal" });
         setConverted(response.data);
     }
 
