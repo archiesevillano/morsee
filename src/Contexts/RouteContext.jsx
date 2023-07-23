@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Pager from '../components/Pager/Pager';
 import GetStarted from '../pages/Get Started/GetStarted';
+import Translator from '../pages/Translator/Translator';
 
 export const RouteContext = React.createContext();
 
@@ -17,7 +18,7 @@ const AppRoutes = ({ children }) => {
         {
             name: "Morsee Translator",
             path: "/translator",
-            element: null,
+            element: <Translator />,
         },
         {
             name: "API Documentation",
