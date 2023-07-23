@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Pager from '../components/Pager/Pager';
+import GetStarted from '../pages/Get Started/GetStarted';
 
 export const RouteContext = React.createContext();
 
@@ -11,7 +12,7 @@ const AppRoutes = ({ children }) => {
         {
             name: "Get Started",
             path: "/",
-            element: null,
+            element: <GetStarted />,
         },
         {
             name: "Morsee Translator",
