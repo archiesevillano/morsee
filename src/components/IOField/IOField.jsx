@@ -14,6 +14,13 @@ const IOField = ({ heading, type, className }) => {
         }
     }, [converted]);
 
+    useEffect(() => {
+        // assigns new value to the textbox whenever there's a new conversion
+        if (type === "input") {
+            inputRef.current.value = input;
+        }
+    }, [input]);
+
     // copies the input inside the textbox
     const handleCopy = () => {
         navigator.clipboard.writeText(type === "input" ? input : converted);
@@ -28,6 +35,7 @@ const IOField = ({ heading, type, className }) => {
     // deletes all the input inside the textbox
     const handleClear = () => {
         inputRef.current.value = "";
+        setInput("");
     }
 
     return (
