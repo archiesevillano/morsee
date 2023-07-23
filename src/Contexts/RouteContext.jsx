@@ -33,7 +33,7 @@ const AppRoutes = ({ children }) => {
                 {children}
                 <Pager>
                     <Routes>
-                        {pages.map(page => <Route path={page.path} element={page.element} />)}
+                        {pages.map(page => <Route key={page.name} path={page.path} element={page.element} />)}
                     </Routes>
                 </Pager>
             </Router>

@@ -40,7 +40,7 @@ const NavBar = () => {
                 <span><i className="fa-solid fa-bars"></i></span>
             </button>
             <ul className="navbar__list" style={{ display: isHamburger ? isVisible ? "block" : "none" : "block" }} >
-                {pages.map(page => <li><NavLink onClick={handleShowHideMenu} className={({ isActive }) => isActive ? "active" : ""} to={page.path}>{page.name}</NavLink></li>)}
+                {pages.map(page => <li key={"navigation-item" + page.path}><NavLink onClick={handleShowHideMenu} className={({ isActive }) => isActive ? "active" : ""} to={page.path}>{page.name}</NavLink></li>)}
             </ul>
             <div className="navbar__overlay" style={{ display: isHamburger ? isVisible ? "block" : "none" : "none" }} onClick={handleShowHideMenu}></div>
         </nav>
