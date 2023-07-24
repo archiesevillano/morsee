@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./ApiDoc.scss";
-import { useEffect, useState } from "react";
+import { useRef } from "react";
 import SampleField from "../../components/SampleField/SampleField";
 import SampleBox from "../../components/SampleBox/SampleBox";
 const ApiDoc = () => {
@@ -58,6 +58,13 @@ const ApiDoc = () => {
 
     const sampleResponse1 = `[{"letter":"A","morse":".-"},{"letter":"B","morse":"-..."},{"letter":"C","morse":"-.-."},{"letter":"D","morse":"-.."},{"letter":"E","morse":"."},{"letter":"F","morse":"..-."},{"letter":"G","morse":"--."},{"letter":"H","morse":"...."},{"letter":"I","morse":".."},{"letter":"J","morse":".---"},{"letter":"K","morse":"-.-"},{"letter":"L","morse":".-.."},{"letter":"M","morse":"--"},{"letter":"N","morse":"-."},{"letter":"O","morse":"---"},{"letter":"P","morse":".--."},{"letter":"Q","morse":"--.-"},{"letter":"R","morse":".-."},{"letter":"S","morse":"..."},{"letter":"T","morse":"-"},{"letter":"U","morse":"..-"},{"letter":"V","morse":"...-"},{"letter":"W","morse":".--"},{"letter":"X","morse":"-..-"},{"letter":"Y","morse":"-.--"},{"letter":"Z","morse":"--.."}]`;
 
+    const handleScrollIntoView = (id) => {
+        const objectToView = document.getElementById(id.replaceAll("#", ""));
+        if (objectToView) {
+            objectToView.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        }
+    }
+
     return (
         <div className="apidoc">
             <div className="apidoc_left">
@@ -103,7 +110,7 @@ const ApiDoc = () => {
 
                 </div>
 
-                <div className="apidoc__left__inputTypes">
+                <div className="apidoc__left__inputTypes" id="categories">
                     <h2 className="apidoc__heading" id="categories">
                         Input Categories
                     </h2>
@@ -117,6 +124,26 @@ const ApiDoc = () => {
                     <p>
                         That's the list of categories that you can use for your API Request.
                     </p>
+                </div>
+
+                <div className="apidoc__left__toMorse" id="toMorse">
+                    <h2 className="apidoc__heading" id="categories">
+                        Translate Regular Text to Morse Code
+                    </h2>
+                    <p>
+                        Here's the method to convert your standard text input into Morse code. In this case, we will use POST method for the translation process.
+                    </p>
+                    <SampleBox data={`await Axios.post("${import.meta.env.VITE_SERVER}/translate", {input: <YOUR-TEXT-TO-TRANSLATE>, type: "morse"});`} />
+                </div>
+
+                <div className="apidoc__left__toMorse" id="toText">
+                    <h2 className="apidoc__heading" id="categories">
+                        Translate Morse Code to  Regular Text
+                    </h2>
+                    <p>
+                        Here's the method to convert your morse code input into standard text. We will still use POST method for the translation process.
+                    </p>
+                    <SampleBox data={`await Axios.post("${import.meta.env.VITE_SERVER}/translate", {input: <YOUR-TEXT-TO-TRANSLATE>, type: "normal"});`} />
                 </div>
 
                 {pointers.filter((point, index) => index > 4).map(type => categoryTemplate(type))}
@@ -176,7 +203,7 @@ const ApiDoc = () => {
                 </table>
 
                 <ul className="apidoc_right__list">
-                    {pointers.map(lnk => <li key={lnk.hash}><NavLink className={`hashlink ${({ isActive }) => isActive ? "active" : ""}`} to={lnk.hash}>{lnk.name}</NavLink></li>)}
+                    {pointers.map(lnk => <li key={lnk.hash}><NavLink onClick={() => handleScrollIntoView(lnk.hash)} className={`hashlink ${({ isActive }) => isActive ? "active" : ""}`} to={lnk.hash}>{lnk.name}</NavLink></li>)}
                 </ul>
             </div>
         </div>
@@ -185,7 +212,7 @@ const ApiDoc = () => {
 
 const categoryTemplate = (subject) => {
     return (
-        <div className="apidoc__left__categoriesTemplate">
+        <div className="apidoc__left__categoriesTemplate" id={subject.hash.replaceAll("#", "")}>
             <h2 className="apidoc__heading" id="categories">
                 {subject.name}
             </h2>

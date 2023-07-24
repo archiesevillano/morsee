@@ -32,7 +32,7 @@ const SampleBox = ({ data }) => {
                     isCopied ? <i className="fa-solid fa-check-double"></i> : <i className="fa-solid fa-copy"></i>
                 }
             </button>
-            <code>{data}</code>
+            <p style={{ width: "100%", fontFamily: "courier", fontSize: "0.8rem" }}>{data}</p>
         </div>
     );
 }

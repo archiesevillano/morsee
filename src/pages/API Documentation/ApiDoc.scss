@@ -11,7 +11,10 @@
         overflow-y: auto;
     }
 
-    .apidoc_right {}
+    .apidoc_right {
+        position: sticky;
+        top: 0;
+    }
 
     .apidoc__heading {
         font-family: index.$head;
