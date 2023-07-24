@@ -6,7 +6,10 @@
     grid-template-columns: 70% 1fr;
     column-gap: 30px;
 
-    .apidoc_left {}
+    .apidoc_left {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 
     .apidoc_right {}
 

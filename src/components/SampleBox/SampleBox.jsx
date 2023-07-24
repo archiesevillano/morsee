@@ -1,8 +1,7 @@
-import "./SampleField.scss";
+import "./SampleBox.scss";
 import { useState, useEffect } from 'react';
 
-const SampleField = ({ text }) => {
-
+const SampleBox = ({ data }) => {
     // returns true if the code template has been copied
     const [isCopied, copied] = useState(false);
 
@@ -16,7 +15,7 @@ const SampleField = ({ text }) => {
     }, [isCopied]);
 
     const handleCopy = () => {
-        navigator.clipboard.writeText(text)
+        navigator.clipboard.writeText(data)
             .then((result) => {
                 //if the input is successfully copied then the tooltip will display 'Copied' instead of 'Copy'
                 copied(true);
@@ -26,16 +25,15 @@ const SampleField = ({ text }) => {
     }
 
     return (
-        <div className="template">
-            <code>{text}</code>
-            <button className="template__copyBtn" onClick={handleCopy}>
-                <span className="template__copyBtn__tooltip">{isCopied ? "Copied" : "Copy"}</span>
+        <div className="sampleBox">
+            <button className="sampleBox__copyBtn" onClick={handleCopy}>
+                <span className="sampleBox__copyBtn__tooltip">{isCopied ? "Copied" : "Copy"}</span>
                 {
                     isCopied ? <i className="fa-solid fa-check-double"></i> : <i className="fa-solid fa-copy"></i>
                 }
             </button>
+            <code>{data}</code>
         </div>
     );
 }
-
-export default SampleField;
+export default SampleBox;

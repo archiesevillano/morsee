@@ -22,7 +22,18 @@ $primary-disable: #c9c9c9ce;
 $secondary-disable: #797979d0;
 $tertiary-disable: #8a8a8ab9;
 
+::-webkit-scrollbar {
+    width: 5px;
+}
 
+::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
 
 // reset margin and padding including box sizing
 * {
