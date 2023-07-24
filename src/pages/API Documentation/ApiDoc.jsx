@@ -83,7 +83,7 @@ const ApiDoc = () => {
                     </p>
                     <div className="template">
                         <code>{templateCode}</code>
-                        <button className="template__copyBtn">
+                        <button className="template__copyBtn" onClick={handleCopy}>
                             <span className="template__copyBtn__tooltip">{isCopied ? "Copied" : "Copy"}</span>
                             <i className="fa-solid fa-copy"></i>
                         </button>
