@@ -66,8 +66,23 @@
         // }
     }
 
-    .apidoc__left__sampleTypes p {
+    .apidoc__left__sampleTemplates p,
+    .apidoc__left__inputTypes p {
         font-size: 0.9rem;
+    }
+
+    .apidoc__left__inputTypes__ol {}
+
+    .apidoc__left__inputTypes__ol li:first-child {
+        font-weight: bold;
+        margin: 8px 0;
+        font-size: 1rem;
+    }
+
+    .apidoc__left__inputTypes__ol li {
+        font-family: index.$normal;
+        font-size: 0.9rem;
+        margin: 5px 0;
     }
 
 }

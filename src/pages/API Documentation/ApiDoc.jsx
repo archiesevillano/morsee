@@ -15,12 +15,20 @@ const ApiDoc = () => {
             hash: "#template"
         },
         {
-            name: "Input Types",
-            hash: "#types"
+            name: "Input Categories",
+            hash: "#categories"
+        },
+        {
+            name: "Translate from Text to Morse",
+            hash: "#toMorse"
+        },
+        {
+            name: "Translate from Morse to Text",
+            hash: "#toText"
         },
         {
             name: "Abbreviations",
-            hash: "#abbr"
+            hash: "#abbr",
         },
         {
             name: "Letters",
@@ -39,12 +47,12 @@ const ApiDoc = () => {
             hash: "#accLet"
         },
         {
-            name: "Prosign",
-            hash: "#prosign"
+            name: "Prosigns",
+            hash: "#prosigns"
         },
         {
-            name: "Qcode",
-            hash: "#qcode"
+            name: "Qcodes",
+            hash: "#qcodes"
         },
     ]
 
@@ -53,11 +61,13 @@ const ApiDoc = () => {
     return (
         <div className="apidoc">
             <div className="apidoc_left">
-                <h1 className="apidoc__heading" id="introduction">API Documentation</h1>
+                <h1 className="apidoc__heading" id="introduction">
+                    API Documentation
+                </h1>
                 <p>
                     Unlock the potential of our API at absolutely no charge! Harness the power of the Morsee Free API to build your very own Morse Code Decoder or Translator Website. Dive into the details and explore the capabilities of our API through our comprehensive documentation. Take advantage of this fantastic opportunity to bring your creative ideas to life without any financial burden. Let your imagination soar and discover the endless possibilities that the Morsee Free API has to offer!
                 </p>
-                <div className="apidoc__left__sampleTypes" id="template">
+                <div className="apidoc__left__sampleTemplates" id="template">
                     <h2 className="apidoc__heading" id="introduction">
                         Sample Template
                     </h2>
@@ -88,8 +98,28 @@ const ApiDoc = () => {
                     <p>
                         Here's a sample response of the code above:
                     </p>
-                    <SampleBox data={JSON.stringify(sampleResponse1)} />
+                    <SampleBox data={JSON.stringify(sampleResponse1).replaceAll("\\", "")} />
+
+
                 </div>
+
+                <div className="apidoc__left__inputTypes">
+                    <h2 className="apidoc__heading" id="categories">
+                        Input Categories
+                    </h2>
+                    <p>
+                        To effectively perform translations between Morse code and characters, it is essential to identify the specific type or category of the character to be translated. Below is a comprehensive list of distinct categories available for each API request, allowing seamless and accurate translations.
+                    </p>
+                    <ol type="1" start="0" className="apidoc__left__inputTypes__ol">
+                        <li style={{ listStyleType: "none" }}>Categories</li>
+                        {pointers.filter((point, index) => index > 4).map(category => <li key={category.name}>{category.name}</li>)}
+                    </ol>
+                    <p>
+                        That's the list of categories that you can use for your API Request.
+                    </p>
+                </div>
+
+                {pointers.filter((point, index) => index > 4).map(type => categoryTemplate(type))}
             </div>
             <div className="apidoc_right">
                 <table className="apidoc__table">
@@ -149,6 +179,36 @@ const ApiDoc = () => {
                     {pointers.map(lnk => <li key={lnk.hash}><NavLink className={`hashlink ${({ isActive }) => isActive ? "active" : ""}`} to={lnk.hash}>{lnk.name}</NavLink></li>)}
                 </ul>
             </div>
+        </div>
+    );
+}
+
+const categoryTemplate = (subject) => {
+    return (
+        <div className="apidoc__left__categoriesTemplate">
+            <h2 className="apidoc__heading" id="categories">
+                {subject.name}
+            </h2>
+            <h3 className="apidoc__heading" id="categories">
+                List of {subject.name} Related Data
+            </h3>
+            <p>
+                {`Below is an example illustrating how to specifically request ${subject.name.toLowerCase()}`}
+            </p>
+            <SampleField text={`${import.meta.env.VITE_SERVER}/${subject.hash.toLowerCase().replaceAll("#", "")}`} />
+            <p>
+                The provided request above returns a comprehensive list of {subject.name.toLowerCase()}, along with additional data that you can utilize for your project.
+            </p>
+            <h3 className="apidoc__heading" id="categories">
+                {subject.name} Only
+            </h3>
+            <p>
+                {`In the above example, the request provides a collection of relevant ${subject.name.toLowerCase().replaceAll("s", "")} data. However, in the following example, you will learn how to specifically request solely the list of ${subject.name.toLowerCase()}.`}
+            </p>
+            <SampleField text={`${import.meta.env.VITE_SERVER}/${subject.hash.toLowerCase().replaceAll("#", "")}/${subject.name.toLowerCase() === "accented letters" ? "letters" : subject.name.toLowerCase()}`} />
+            <p>
+                That's all for {subject.name}. You can now play around and test it in your project.
+            </p>
         </div>
     );
 }
