@@ -14,9 +14,22 @@
     border-radius: 5px;
     gap: 20px;
 
+    @media (max-width:500px) {
+        padding: 5px 0;
+        width: 100%;
+        height: auto;
+        grid-template-columns: 1fr 10%;
+        gap: 0px;
+    }
+
     code {
         grid-column-start: 1;
         grid-column-end: 2;
+
+        @media (max-width:500px) {
+            width: 100%;
+            height: auto;
+        }
     }
 
     .template__copyBtn {
@@ -42,6 +55,10 @@
         z-index: 2;
         opacity: 0;
         transition: all 0.2s ease-in-out;
+
+        @media (max-width:500px) {
+            right: 5px;
+        }
     }
 
     .template__copyBtn__tooltip::before {
@@ -54,6 +71,10 @@
         left: 50%;
         transform: translateX(-50%) rotate(45deg);
         z-index: -1;
+
+        @media (max-width:500px) {
+            left: 70%;
+        }
     }
 
     .template__copyBtn:hover .template__copyBtn__tooltip {

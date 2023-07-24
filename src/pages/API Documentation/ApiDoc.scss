@@ -5,15 +5,31 @@
     display: grid;
     grid-template-columns: 70% 1fr;
     column-gap: 30px;
+    height: max-content;
+
+    @media (max-width: 850px) {
+        grid-template-columns: 1fr;
+    }
+
+    @media (max-width:500px) {
+        padding: 20px 20px;
+    }
 
     .apidoc_left {
         overflow-x: hidden;
         overflow-y: auto;
+
+        @media (max-width: 850px) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
     }
 
     .apidoc_right {
-        position: sticky;
-        top: 0;
+
+        @media (max-width: 850px) {
+            display: none;
+        }
     }
 
     .apidoc__heading {
@@ -74,8 +90,6 @@
     .apidoc__left__inputTypes p {
         font-size: 0.9rem;
     }
-
-    .apidoc__left__inputTypes__ol {}
 
     .apidoc__left__inputTypes__ol li:first-child {
         font-weight: bold;
