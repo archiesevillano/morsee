@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import "./ApiDoc.scss";
 import { useEffect, useState } from "react";
+import SampleField from "../../components/SampleField/SampleField";
 const ApiDoc = () => {
 
     const pointers = [
@@ -48,28 +49,6 @@ const ApiDoc = () => {
 
     const templateCode = `${import.meta.env.VITE_SERVER}/[TYPE]/[DATA]`;
 
-    // returns true if the code template has been copied
-    const [isCopied, copied] = useState(false);
-
-    useEffect(() => {
-        if (isCopied) {
-            // sets the copied state to false(not copied state) after 10 seconnds
-            setTimeout(() => {
-                copied(false);
-            }, [10000]);
-        }
-    }, [isCopied]);
-
-    const handleCopy = () => {
-        navigator.clipboard.writeText(templateCode)
-            .then((result) => {
-                //if the input is successfully copied then the tooltip will display 'Copied' instead of 'Copy'
-                copied(true);
-            }).catch((err) => {
-                console.warn(err);
-            });
-    }
-
     return (
         <div className="apidoc">
             <div className="apidoc_left">
@@ -81,13 +60,8 @@ const ApiDoc = () => {
                     <p>
                         Here's the sample template that you can use:
                     </p>
-                    <div className="template">
-                        <code>{templateCode}</code>
-                        <button className="template__copyBtn" onClick={handleCopy}>
-                            <span className="template__copyBtn__tooltip">{isCopied ? "Copied" : "Copy"}</span>
-                            <i className="fa-solid fa-copy"></i>
-                        </button>
-                    </div>
+                    <SampleField text={templateCode} />
+                    <p>The provided sample above shows the template for requesting a particular data and its type from the server</p>
                 </div>
             </div>
             <div className="apidoc_right">
