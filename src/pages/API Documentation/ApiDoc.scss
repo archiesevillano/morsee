@@ -1,0 +1,126 @@
+@use './../../index';
+
+.apidoc {
+    padding: 20px 50px;
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    column-gap: 30px;
+
+    .apidoc_left {}
+
+    .apidoc_right {}
+
+    .apidoc__heading {
+        font-family: index.$head;
+        color: index.$primary-active;
+    }
+
+    p {
+        font-family: index.$normal;
+        opacity: 0.8;
+    }
+
+    .apidoc__table {
+        max-width: 300px;
+        border: 1px solid #bebebe;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    td {
+        padding: 10px 0;
+        font-family: index.$normal;
+    }
+
+    th {
+        font-family: index.$normal;
+        padding: 10px;
+    }
+
+    .apidoc__table__icon {
+        color: #1fc76a;
+        width: 30px;
+    }
+
+    .apidoc__table__text {
+        opacity: 0.8;
+    }
+
+    .apidoc_right__list {
+        list-style-type: none;
+
+        .hashlink {
+            text-decoration: none;
+            font-family: index.$normal;
+            font-size: 0.8rem;
+            display: inline-block;
+            padding: 6px 0;
+            color: index.$tertiary-disable;
+        }
+
+        // .hashlink.active {
+        //     color: index.$primary;
+        // }
+    }
+
+    .template {
+        width: 100%;
+        height: 40px;
+        background-color: #e0e0e0;
+        justify-content: center;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 1fr 10%;
+        padding: 10px 20px;
+        border: 1px solid rgb(146, 146, 146);
+        border-radius: 5px;
+        padding-right: 0;
+
+        code {
+            grid-column-start: 1;
+            grid-column-end: 2;
+        }
+
+        .template__copyBtn {
+            grid-column-start: 2;
+            grid-column-end: 3;
+            border: none;
+            background: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .template__copyBtn__tooltip {
+            display: inline-block;
+            background-color: index.$primary;
+            color: #f2f2f2;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-family: index.$normal;
+            font-size: 0.7rem;
+            position: absolute;
+            top: -30px;
+            right: 0;
+            z-index: 2;
+            opacity: 0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .template__copyBtn__tooltip::before {
+            content: '';
+            background-color: index.$primary;
+            width: 15px;
+            height: 15px;
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            z-index: -1;
+        }
+
+        .template__copyBtn:hover .template__copyBtn__tooltip {
+            opacity: 1;
+        }
+
+    }
+}

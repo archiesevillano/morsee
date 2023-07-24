@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Pager from '../components/Pager/Pager';
 import GetStarted from '../pages/Get Started/GetStarted';
 import Translator from '../pages/Translator/Translator';
+import ApiDoc from '../pages/API Documentation/ApiDoc';
 
 export const RouteContext = React.createContext();
 
@@ -23,7 +24,7 @@ const AppRoutes = ({ children }) => {
         {
             name: "API Documentation",
             path: "/api-documentation",
-            element: null,
+            element: <ApiDoc />,
         },
     ]
 
