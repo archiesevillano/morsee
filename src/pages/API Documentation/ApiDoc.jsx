@@ -203,7 +203,7 @@ const ApiDoc = () => {
                 </table>
 
                 <ul className="apidoc_right__list">
-                    {pointers.map(lnk => <li key={lnk.hash}><NavLink onClick={() => handleScrollIntoView(lnk.hash)} className={`hashlink ${({ isActive }) => isActive ? "active" : ""}`} to={lnk.hash}>{lnk.name}</NavLink></li>)}
+                    {pointers.map(lnk => <li key={lnk.hash}><NavLink onClick={() => handleScrollIntoView(lnk.hash)} className={"hashlink"} to={lnk.hash}>{lnk.name}</NavLink></li>)}
                 </ul>
             </div>
         </div>

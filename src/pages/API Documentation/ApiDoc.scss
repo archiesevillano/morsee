@@ -31,6 +31,7 @@
         border: 1px solid #bebebe;
         padding: 20px;
         border-radius: 10px;
+        background-color: #ffffff;
     }
 
     td {
@@ -61,7 +62,7 @@
             font-size: 0.8rem;
             display: inline-block;
             padding: 6px 0;
-            color: index.$tertiary-disable;
+            color: index.$primary;
         }
 
         // .hashlink.active {
