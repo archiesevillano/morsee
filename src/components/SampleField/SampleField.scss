@@ -22,14 +22,22 @@
         gap: 0px;
     }
 
-    code {
+    .template__text {
         grid-column-start: 1;
         grid-column-end: 2;
+        border: 0;
+        background: none;
+        font-family: monospace;
+        font-size: 0.7rem;
+        width: 250px;
 
         @media (max-width:500px) {
             width: 100%;
-            height: auto;
         }
+    }
+
+    .template__text:focus {
+        outline: none;
     }
 
     .template__copyBtn {

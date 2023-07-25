@@ -27,7 +27,7 @@ const SampleField = ({ text }) => {
 
     return (
         <div className="template">
-            <code>{text}</code>
+            <input type="text" className="template__text" readOnly value={text} />
             <button className="template__copyBtn" onClick={handleCopy}>
                 <span className="template__copyBtn__tooltip">{isCopied ? "Copied" : "Copy"}</span>
                 {
